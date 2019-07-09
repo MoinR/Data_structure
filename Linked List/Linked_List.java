@@ -1,10 +1,11 @@
-/**
-     Functionality To be added : 
-          Insert node before 
-          Insert node after 
-          Delete node
-          Sort Linked List 
-          Reverse Linked List  
+/**  
+     * Singly Linked List
+          Functionality To be added : 
+               Insert node before 
+               Insert node after 
+               Delete node
+               Sort Linked List 
+               Reverse Linked List  
  */
 import java.util.Scanner;
 import java.util.InputMismatchException;
