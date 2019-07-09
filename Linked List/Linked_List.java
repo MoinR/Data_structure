@@ -1,27 +1,37 @@
 /**
-     In progress 
+     Functionality To be added : 
+          Insert node before 
+          Insert node after 
+          Delete node
+          Sort Linked List 
+          Reverse Linked List  
  */
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Linked_List {
      
+     /** Creating Data structure  */
      static class node{
           int data; 
           node next;    
+          
+          /** Constructor  */
           node(int x){
                data = x;
                next = null;
           }
      }    
-     
+     /** Master node  */
      node first = null; 
-
+     
      void create(Linked_List ln){
+
           if(first != null){
                System.out.println("Linked List created already ");
                return;
           }
+
           Scanner sc = new Scanner(System.in);
 
           System.out.println("Enter Number of elements you want to create : ");
@@ -35,7 +45,7 @@ public class Linked_List {
                new1.next = null;
           
                node curr; 
-          
+
                if(first == null){
                     first = new1;
                     System.out.println("Inserted At first \n");
@@ -51,25 +61,44 @@ public class Linked_List {
      }
 
      void insert(int val){ 
-          System.out.println("Called Insert ");
+
+          if(first == null){
+               System.out.println("You have not created linked list ");
+               return;
+          }
+
           Scanner sc = new Scanner(System.in);
-          
-          if(first != null){
-               System.out.println("Enter value : ");
-               val = sc.nextInt(); 
-          } 
           
           node new1 = new node(val);
           new1.next = null;
           
           node curr; 
           
-          if(first == null){
-               first = new1;
-               System.out.println("Inserted At first ");
-               return;
+          curr = first; 
+          while(curr.next != null){
+               curr = curr.next;
           }
 
+          curr.next = new1;
+     }
+     /** Overloading Insert */
+     void insert(){ 
+          
+          if(first == null){
+               System.out.println("You have not created linked list ");
+               return;
+          }
+          
+          Scanner sc = new Scanner(System.in);
+          
+          System.out.println("Enter value : ");
+          int val = sc.nextInt(); 
+          
+          node new1 = new node(val);
+          new1.next = null;
+          
+          node curr; 
+          
           curr = first; 
           while(curr.next != null){
                curr = curr.next;
@@ -79,20 +108,22 @@ public class Linked_List {
      }
 
      void display(){
+          /** We have taken Current node for traversal purpose */
           node curr;
           
           if(first == null){
                System.out.println("Linked list is empty ");
                return;
           }
-          
+
+          /** Traversing from first to last node */
           curr = first; 
           while(curr.next != null){
-               System.out.println(curr.data);
+               System.out.print(curr.data + " --> ");
                curr = curr.next;
           }
-          System.out.println(curr.data);
 
+          System.out.println(curr.data);
 
      }
 
@@ -118,7 +149,7 @@ public class Linked_List {
                          ln.create(ln);
                     }
                     else if(ch == '2'){
-                         ln.insert(1);
+                         ln.insert();
                     }
                     else if(ch == '3'){
                          ln.display();
